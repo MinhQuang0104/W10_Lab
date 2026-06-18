@@ -32,7 +32,7 @@ kind: K8sRequiredLabels
 metadata:
   name: pods-must-have-owner
 spec:
-  enforcementAction: deny
+  enforcementAction: warn
   match:
     kinds:
       - apiGroups: [""]

@@ -3,10 +3,11 @@ kind: K8sAllowedRepos
 metadata:
   name: block-latest-tag
 spec:
-  enforcementAction: warn # Hoặc đổi thành warn để audit trước
+  enforcementAction: warn
   match:
     kinds:
       - apiGroups: [""]
         kinds: ["Pod"]
   parameters:
-    # Logic cấu hình tùy thuộc vào template có sẵn của cluster bạn.
+    # Cấu hình chặn hậu tố ':latest' hoặc không ghi tag (mặc định hiểu là latest)
+    repos: ["^.+:(?!latest$)[^:]+$"]
