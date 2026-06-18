@@ -1,0 +1,12 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sAllowedRepos
+metadata:
+  name: block-latest-tag
+spec:
+  enforcementAction: deny # Hoặc đổi thành warn để audit trước
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+  parameters:
+    # Logic cấu hình tùy thuộc vào template có sẵn của cluster bạn.
